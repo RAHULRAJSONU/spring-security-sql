@@ -9,4 +9,5 @@ public class SpringSecuritySqlApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(SpringSecuritySqlApplication.class, args);
 	}
+
 }

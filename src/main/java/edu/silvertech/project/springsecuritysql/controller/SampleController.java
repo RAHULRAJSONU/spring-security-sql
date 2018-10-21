@@ -1,5 +1,6 @@
 package edu.silvertech.project.springsecuritysql.controller;
 
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -14,6 +15,7 @@ public class SampleController {
         return "Welcome "+name;
     }
 
+    @PreAuthorize("hasAnyRole('ADMIN')")
     @RequestMapping(value = "secured/{name}", method = RequestMethod.GET, produces = "Application/json")
     public String greetSecurely(@PathVariable("name") String name) {
         return "Welcome boss::"+name;
